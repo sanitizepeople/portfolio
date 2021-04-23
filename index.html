@@ -11,6 +11,9 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" />
 
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css" />
 
@@ -49,7 +52,7 @@
     <section class="jumbotron text-center">
       <img src="img/rozano.jpg" alt="Daffa Rozano" width="200" class="rounded-circle img-thumbnail" />
       <h1 class="display-4">Daffa Rozano</h1>
-      <p class="lead">Co-Founder Bersinar Project</p>
+      <p class="lead"></p>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#fff"
@@ -71,7 +74,7 @@
           </div>
         </div>
         <div class="row justify-content-center fs-5 text-center">
-          <div class="col-md-4 text-center">
+          <div class="col-md-4 text-center" data-aos="fade-in">
             <p>A person who can easily adapt to new environment, work as a team, social communicate and have a passion in technology and industry itself.</p>
           </div>
           <!-- <div class="col-md-4">
@@ -101,7 +104,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card" data-aos="flip-left" data-aos-duration="500" >
               <a href="https://sanitizepeople.github.io/Progate-Linktree/#"><img src="img/projects/6.jpg" class="card-img-top" alt="Project 1" /></a>
               <div class="card-body">
                 <p class="card-text">Linktree - Progate</p>
@@ -109,7 +112,7 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card" data-aos="flip-left" data-aos-duration="500" data-aos-delay="100">
               <a href="https://sanitizepeople.github.io/Jan-Ken/"><img src="img/projects/7.jpg" class="card-img-top" alt="Project 2" /></a>
               <div class="card-body">
                 <p class="card-text">Rock Paper Scissors - Progate</p>
@@ -117,7 +120,7 @@
             </div>
           </div>
           <div class="col-md-4 mb-3"> 
-            <div class="card">
+            <div class="card" data-aos="flip-left" data-aos-duration="500" data-aos-delay="200">
               <a href="https://mylibb.herokuapp.com/"><img src="img/projects/3.jpg" class="card-img-top" alt="Project 3" /></a>
               <div class="card-body">
                 <p class="card-text">MyLib</p>
@@ -151,6 +154,30 @@
       </svg>
     </section>
     <!-- Akhir Projects -->
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <div class="container">
+        <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Gallery</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/rate outfit dynamic abc.jpg" alt="Gambar 1" class="img-fluid gallery-img">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="#">
+              <img src="img/gallery/thumbnail/Who is The Goat- Local Band.jpg" alt="Gambar 2" class="img-fluid gallery-img">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Gallery -->
 
     <!-- Contact -->
     <section id="contacts">
@@ -206,6 +233,32 @@
     <!-- Akhir Footer -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      const galleryImage = document.querySelectorAll('.gallery-img')
+
+      galleryImage.forEach((img, i) => {
+        img.dataset.aos = 'fade-down';
+        img.dataset.aosDelay = i * 100;
+        img.dataset.aosDuration = 1000;
+      });
+
+      AOS.init({
+        once: false,
+        duration: 2000,
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
+    <script>
+      gsap.registerPlugin(TextPlugin);
+      gsap.to('.lead', { duration: 2, delay:1.5, text:'Human Resource Staff at Bersinar Project' })
+      gsap.from('.jumbotron img', { duration:1, y:-100, opacity:0, ease:"bounce"});
+      gsap.from('.navbar', {duration: 1.5, y:'-100%', opacity: 0, ease:"bounce"});
+      gsap.from('.display-4', {duration: 1, x:-50, opacity: 0, delay:0.5, ease:"back"});
+    </script>
     
     <script>
       const scriptURL = 'https://script.google.com/macros/s/AKfycby7-CCOmhjbrWoX_7JzmgDVWVrtBSKocxxlZ3HtjAP9BfvkWCrVkRBqaUD9fFRCqLukhw/exec';
